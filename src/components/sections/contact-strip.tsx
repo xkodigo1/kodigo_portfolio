@@ -30,9 +30,9 @@ export function ContactStrip({
   title,
 }: ContactStripProps) {
   return (
-    <section className="mx-auto max-w-7xl px-4 pb-14 sm:px-6 sm:pb-16 md:px-10 md:pb-24">
-      <div className="overflow-hidden rounded-[2rem] border border-stone-900/10 bg-stone-950 px-5 py-7 text-stone-50 shadow-[0_24px_90px_-45px_rgba(25,16,9,0.95)] sm:px-6 sm:py-8 dark:border-white/10 dark:bg-[linear-gradient(135deg,rgba(17,24,39,0.94),rgba(15,23,42,0.98))] dark:text-stone-100 dark:shadow-[0_26px_100px_-48px_rgba(5,10,20,0.95)] md:px-10 md:py-10">
-        <div className="grid gap-6 sm:gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-end">
+    <section className="mx-auto max-w-[92rem] px-4 pb-14 sm:px-6 sm:pb-16 md:px-10 md:pb-24 xl:px-12">
+      <div className="overflow-hidden rounded-[2rem] border border-stone-900/10 bg-stone-950 px-5 py-7 text-stone-50 shadow-[0_24px_90px_-45px_rgba(25,16,9,0.95)] sm:px-6 sm:py-8 dark:border-white/10 dark:bg-[linear-gradient(135deg,rgba(17,24,39,0.94),rgba(15,23,42,0.98))] dark:text-stone-100 dark:shadow-[0_26px_100px_-48px_rgba(5,10,20,0.95)] md:px-10 md:py-10 xl:px-12 xl:py-11">
+        <div className="grid gap-6 sm:gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-end xl:gap-10">
           <div className="space-y-4">
             <p className="text-[11px] uppercase tracking-[0.18em] text-amber-300 sm:text-sm sm:tracking-[0.22em] dark:text-teal-300">
               {eyebrow}
