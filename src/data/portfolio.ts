@@ -216,7 +216,7 @@ export const portfolioContent: Record<Locale, PortfolioLocaleContent> = {
           "Unificó inscripciones, asistencia, pagos, certificados, reportes y captación pública en una sola plataforma educativa.",
         link: "https://github.com/IA-Academy-Team",
         metrics: ["React 19", "Express", "TypeORM"],
-        role: "Rol: full-stack product contributor",
+        role: "full-stack product contributor",
         summary:
           "Plataforma interna de Campuslands IA Academy con panel administrativo, vistas operativas, tiempo real, exports, flujos de pago y landing conectada al producto.",
         title: "Apex Platform",
@@ -231,7 +231,7 @@ export const portfolioContent: Record<Locale, PortfolioLocaleContent> = {
           "Integró procesamiento documental, control por roles y analítica operativa en un sistema full-stack orientado a uso real.",
         link: "https://github.com/xkodigo1/docsflow-project",
         metrics: ["FastAPI", "React", "MySQL"],
-        role: "Rol: full-stack developer",
+        role: "full-stack developer",
         summary:
           "Sistema de gestión documental con autenticación JWT, extracción automática de tablas desde PDF, dashboard administrativo y experiencia diferenciada para operadores.",
         title: "DocsFlow",
@@ -246,7 +246,7 @@ export const portfolioContent: Record<Locale, PortfolioLocaleContent> = {
           "Combinó matching, chat, créditos y analítica en una aplicación social con lógica de dominio y enfoque comercial.",
         link: "https://github.com/xkodigo1/campus-love-app",
         metrics: [".NET", "C#", "MySQL"],
-        role: "Rol: backend + product implementation",
+        role: "backend + product implementation",
         summary:
           "Aplicación de citas enfocada en comunidad universitaria, con arquitectura por capas, herramientas de administración y flujos de monetización.",
         title: "Campus Love App",
@@ -443,7 +443,7 @@ export const portfolioContent: Record<Locale, PortfolioLocaleContent> = {
           "Unified enrollment, attendance, payments, certificates, reporting, and public acquisition flows into one education platform.",
         link: "https://github.com/IA-Academy-Team",
         metrics: ["React 19", "Express", "TypeORM"],
-        role: "Role: full-stack product contributor",
+        role: "full-stack product contributor",
         summary:
           "Campuslands IA Academy's internal platform with admin tooling, operational views, realtime features, exports, payment-linked workflows, and a connected landing surface.",
         title: "Apex Platform",
@@ -458,7 +458,7 @@ export const portfolioContent: Record<Locale, PortfolioLocaleContent> = {
           "Combined document processing, role-based access, and operational analytics in a full-stack system designed for real use.",
         link: "https://github.com/xkodigo1/docsflow-project",
         metrics: ["FastAPI", "React", "MySQL"],
-        role: "Role: full-stack developer",
+        role: "full-stack developer",
         summary:
           "Document management platform with JWT auth, automatic PDF table extraction, an admin dashboard, and differentiated operator workflows.",
         title: "DocsFlow",
@@ -473,7 +473,7 @@ export const portfolioContent: Record<Locale, PortfolioLocaleContent> = {
           "Brought matching, chat, credits, and analytics together in a social product with layered domain logic and commercial thinking.",
         link: "https://github.com/xkodigo1/campus-love-app",
         metrics: [".NET", "C#", "MySQL"],
-        role: "Role: backend + product implementation",
+        role: "backend + product implementation",
         summary:
           "University-focused dating app with layered architecture, admin tooling, and monetization-oriented product flows.",
         title: "Campus Love App",
@@ -671,7 +671,7 @@ export const portfolioContent: Record<Locale, PortfolioLocaleContent> = {
           "Unificou inscrições, presença, pagamentos, certificados, relatórios e captação pública em uma única plataforma educacional.",
         link: "https://github.com/IA-Academy-Team",
         metrics: ["React 19", "Express", "TypeORM"],
-        role: "Papel: contribuição full-stack em produto",
+        role: "contribuição full-stack em produto",
         summary:
           "Plataforma interna da Campuslands IA Academy com painel administrativo, vistas operacionais, tempo real, exportações, fluxos de pagamento e landing integrada.",
         title: "Apex Platform",
@@ -686,7 +686,7 @@ export const portfolioContent: Record<Locale, PortfolioLocaleContent> = {
           "Combinou processamento documental, acesso por papéis e análise operacional em um sistema full-stack voltado para uso real.",
         link: "https://github.com/xkodigo1/docsflow-project",
         metrics: ["FastAPI", "React", "MySQL"],
-        role: "Papel: desenvolvedor full-stack",
+        role: "desenvolvedor full-stack",
         summary:
           "Plataforma de gestão documental com autenticação JWT, extração automática de tabelas de PDF, dashboard administrativo e experiência diferenciada para operadores.",
         title: "DocsFlow",
@@ -701,7 +701,7 @@ export const portfolioContent: Record<Locale, PortfolioLocaleContent> = {
           "Reuniu matching, chat, créditos e analytics em um produto social com lógica de domínio em camadas e visão comercial.",
         link: "https://github.com/xkodigo1/campus-love-app",
         metrics: [".NET", "C#", "MySQL"],
-        role: "Papel: implementação backend + produto",
+        role: "implementação backend + produto",
         summary:
           "Aplicativo de relacionamentos voltado para a comunidade universitária, com arquitetura em camadas, ferramentas administrativas e fluxos de monetização.",
         title: "Campus Love App",

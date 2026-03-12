@@ -29,6 +29,7 @@ describe("Home page", () => {
       "aria-pressed",
       "false",
     );
+    expect(screen.queryByText(/rol:\s*rol:/i)).not.toBeInTheDocument();
     expect(screen.getAllByRole("link", { name: /github/i })).toHaveLength(2);
   });
 
@@ -48,6 +49,7 @@ describe("Home page", () => {
     expect(
       screen.getByText(/full-stack developer \+ product systems engineer/i),
     ).toBeInTheDocument();
+    expect(screen.queryByText(/role:\s*role:/i)).not.toBeInTheDocument();
     expect(
       screen.getByRole("heading", { level: 3, name: /backend and domain logic/i }),
     ).toBeInTheDocument();
