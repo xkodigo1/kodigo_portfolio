@@ -1,36 +1,154 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Kodigo Portfolio
 
-## Getting Started
+Strict portfolio repository built on a modern Next.js stack with automated quality gates, visual tooling, and disciplined commit governance.
 
-First, run the development server:
+## Stack
+
+- Next.js 16 with App Router and React Compiler
+- React 19 + TypeScript
+- Tailwind CSS v4
+- shadcn/ui primitives
+- Motion for purposeful animation
+- Biome for formatting and linting
+- Vitest + Testing Library for unit tests
+- Playwright for end-to-end smoke coverage
+- Storybook + Chromatic for component development and visual review
+- Lighthouse CI for performance and accessibility assertions
+- Vercel for preview and production deployments
+
+## Development
+
+1. Install dependencies:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+pnpm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Start the app:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+pnpm dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+3. Run Storybook:
 
-## Learn More
+```bash
+pnpm storybook
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Scripts
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- `pnpm dev`: run the Next.js app with Turbopack
+- `pnpm build`: production build
+- `pnpm start`: serve the production build
+- `pnpm lint`: Biome validation
+- `pnpm format`: Biome autofix
+- `pnpm typecheck`: TypeScript checks
+- `pnpm test`: unit tests
+- `pnpm test:stories`: Storybook-integrated tests
+- `pnpm test:e2e`: Playwright smoke suite
+- `pnpm storybook:build`: static Storybook build
+- `pnpm lighthouse`: Lighthouse CI assertions
+- `pnpm verify`: strict local gate before shipping
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Commit Convention
 
-## Deploy on Vercel
+Commits are mandatory `gitmoji + Conventional Commits`.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Format:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```text
+:sparkles: feat(scope): short description
+```
+
+Approved type-to-gitmoji pairs:
+
+- `:sparkles: feat`
+- `:bug: fix`
+- `:memo: docs`
+- `:lipstick: style`
+- `:recycle: refactor`
+- `:zap: perf`
+- `:white_check_mark: test`
+- `:package: build`
+- `:construction_worker: ci`
+- `:wrench:` or `:toolbox: chore`
+- `:rewind: revert`
+
+Examples:
+
+```text
+:sparkles: feat(hero): launch editorial landing layout
+:bug: fix(ci): restore commit-range validation on push
+:memo: docs(readme): explain strict development workflow
+```
+
+The repo enforces this through:
+
+- local `commit-msg` hook
+- PR review checklist
+- CI commit history validation
+
+## Workflow Rules
+
+- `main` must stay deployable.
+- No direct push to `main`.
+- Use topic branches: `feat/*`, `fix/*`, `chore/*`, `design/*`.
+- Every relevant change goes through PR.
+- Every PR must pass lint, typecheck, unit tests, Storybook checks, Playwright smoke, build, and Lighthouse.
+- UI changes must keep mobile and desktop quality aligned.
+- Secrets only live in GitHub Secrets or `.env.local`.
+
+## Environment
+
+No runtime environment variables are required for the starter. If analytics, forms, or third-party APIs are added later:
+
+- store local values in `.env.local`
+- store CI or production values in GitHub and Vercel secrets
+- never commit `.env*`
+
+## CI/CD
+
+GitHub Actions runs:
+
+- commit convention validation
+- lint
+- typecheck
+- unit tests
+- Storybook tests and build
+- Playwright smoke tests
+- production build
+- Lighthouse assertions
+- CodeQL security analysis
+
+Dependabot is configured weekly for npm and GitHub Actions.
+
+## Structure
+
+```text
+.github/
+.husky/
+scripts/
+src/app/
+src/components/
+src/data/
+tests/e2e/
+```
+
+## Deployment
+
+Recommended target: Vercel.
+
+- previews from pull requests
+- production from `main`
+- branch protection enabled for `main`
+
+## Acceptance Bar
+
+A change is not done until:
+
+- the UX looks intentional on mobile and desktop
+- the code is typed and formatted
+- the tests pass
+- the commit history stays readable
+- the branch is safe to merge without manual cleanup
