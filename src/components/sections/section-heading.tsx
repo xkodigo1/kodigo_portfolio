@@ -18,7 +18,7 @@ export function SectionHeading({ align = "left", eyebrow, summary, title }: Sect
         {eyebrow}
       </Badge>
       <div className="space-y-3">
-        <h2 className="text-balance text-3xl font-semibold tracking-tight text-stone-950 dark:text-stone-50 md:text-4xl">
+        <h2 className="text-balance text-2xl font-semibold tracking-tight text-stone-950 sm:text-3xl dark:text-stone-50 md:text-4xl">
           {title}
         </h2>
         <p className="text-pretty text-base leading-7 text-stone-700 dark:text-stone-300 md:text-lg">
