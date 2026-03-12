@@ -3,7 +3,7 @@ import { execSync } from "node:child_process";
 import { printCommitError, validateCommitHeader } from "./commit-rules.mjs";
 
 const range = process.argv[2] ?? process.env.COMMIT_RANGE ?? "HEAD~1..HEAD";
-const logOutput = execSync(`git log --format=%H%x1f%s%x1e ${range}`, {
+const logOutput = execSync(`git log --no-merges --format=%H%x1f%s%x1e ${range}`, {
   encoding: "utf8",
   stdio: ["ignore", "pipe", "pipe"],
 }).trim();
