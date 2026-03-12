@@ -10,15 +10,21 @@ describe("Home page", () => {
     document.documentElement.lang = "es";
   });
 
-  it("renders in Spanish by default with language and theme controls", () => {
+  it("renders in Spanish by default with full-stack positioning", () => {
     render(<Home />);
 
     expect(screen.getByRole("heading", { level: 1, name: /fabian galan/i })).toBeInTheDocument();
+    expect(
+      screen.getByText(/desarrollador full-stack \+ ingeniero de sistemas de producto/i),
+    ).toBeInTheDocument();
     expect(
       screen.getByRole("heading", {
         level: 2,
         name: /proyectos que demuestran rango de producto y profundidad de ingeniería/i,
       }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("heading", { level: 3, name: /backend y lógica de dominio/i }),
     ).toBeInTheDocument();
     expect(screen.getByRole("button", { name: "ES" })).toHaveAttribute("aria-pressed", "true");
     expect(screen.getByRole("button", { name: /oscuro/i })).toHaveAttribute(
@@ -40,6 +46,12 @@ describe("Home page", () => {
         level: 2,
         name: /projects that show both product range and engineering depth/i,
       }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText(/full-stack developer \+ product systems engineer/i),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("heading", { level: 3, name: /backend and domain logic/i }),
     ).toBeInTheDocument();
     expect(screen.getByRole("button", { name: "EN" })).toHaveAttribute("aria-pressed", "true");
     expect(document.documentElement.lang).toBe("en");

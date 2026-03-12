@@ -37,6 +37,12 @@ type SiteConfig = {
   title: string;
 };
 
+type StackGroup = {
+  items: readonly string[];
+  summary: string;
+  title: string;
+};
+
 type TimelineEntry = {
   label: string;
   value: string;
@@ -65,6 +71,7 @@ type UiCopy = {
   selectedWorkEyebrow: string;
   selectedWorkSummary: string;
   selectedWorkTitle: string;
+  stackGroupLabel: string;
   stepLabel: string;
   themeLabel: string;
   viewOrganization: string;
@@ -79,6 +86,7 @@ type PortfolioLocaleContent = {
   processSteps: readonly ProcessStep[];
   siteConfig: SiteConfig;
   stack: readonly string[];
+  stackGroups: readonly StackGroup[];
   timeline: readonly TimelineEntry[];
   ui: UiCopy;
 };
@@ -111,31 +119,30 @@ export const portfolioContent: Record<Locale, PortfolioLocaleContent> = {
     capabilityGroups: [
       {
         description:
-          "Landings, micrositios y superficies de producto afinadas para conversión, claridad narrativa y percepción premium.",
-        title: "Interfaces listas para lanzamiento",
+          "Interfaces de producto, paneles administrativos y sistemas UI pensados para claridad, velocidad y mantenibilidad.",
+        title: "Frontend de producto",
       },
       {
         description:
-          "Componentes, tokens y patrones reutilizables que se mantienen consistentes cuando el producto crece.",
-        title: "Sistemas de diseño con criterio",
+          "APIs, autenticación, modelado relacional, websockets y flujos de negocio que soportan complejidad real.",
+        title: "Backend y lógica de dominio",
       },
       {
         description:
-          "Validaciones automáticas para accesibilidad, responsividad, build, tipado y regresiones antes de publicar.",
-        title: "Calidad impuesta por automatización",
+          "Procesamiento documental, exportes, reporting y automatizaciones que conectan operación con producto.",
+        title: "Sistemas operativos end-to-end",
       },
       {
         description:
-          "Decisiones de frontend conectadas con operación, métricas y objetivos reales del negocio.",
-        title: "Ejecución orientada a producto",
+          "Guardrails de CI/CD, pruebas, tipado y verificación visual para publicar con menos riesgo.",
+        title: "Entrega con estándares de producción",
       },
     ],
     contact: {
       eyebrow: "Contacto",
       githubLabel: "GitHub",
       primaryAction: "Escríbeme",
-      title:
-        "¿Necesitas un portafolio, dashboard o sistema UI que se sienta más sólido que la media?",
+      title: "¿Necesitas un producto, dashboard o plataforma que funcione bien de punta a punta?",
     },
     featuredProjects: [
       {
@@ -191,37 +198,54 @@ export const portfolioContent: Record<Locale, PortfolioLocaleContent> = {
       },
     ],
     siteConfig: {
-      availability: "Disponible para colaboraciones selectas en producto y frontend",
+      availability: "Disponible para roles full-stack, frontend y backend orientados a producto",
       description:
-        "Ingeniero frontend enfocado en interfaces pulidas, dashboards operativos y sistemas web que soportan complejidad real.",
+        "Desarrollador full-stack enfocado en interfaces pulidas, APIs sólidas y sistemas web que soportan operación real.",
       email: "180666585+xkodigo1@users.noreply.github.com",
       githubUrl: "https://github.com/xkodigo1",
       heroBlurb:
-        "Diseño y desarrollo productos web que equilibran precisión visual, profundidad operativa y ejecución confiable.",
+        "Diseño y desarrollo productos web completos: frontend, backend, datos e integraciones con foco en ejecución confiable.",
       location: "Remoto desde Colombia",
       name: "Fabian Galan",
-      title: "Ingeniero Frontend + Constructor de Sistemas UI",
+      title: "Desarrollador Full-Stack + Ingeniero de Sistemas de Producto",
     },
     stack: sharedStack,
+    stackGroups: [
+      {
+        items: ["Next.js", "React", "TypeScript", "Tailwind CSS", "shadcn/ui"],
+        summary: "Interfaces de producto, dashboards y sistemas UI mantenibles.",
+        title: "Frontend",
+      },
+      {
+        items: ["Node.js", "Express", "FastAPI", ".NET", "JWT", "MySQL", "TypeORM"],
+        summary: "APIs, autenticación, persistencia y lógica de negocio real.",
+        title: "Backend",
+      },
+      {
+        items: ["GitHub Actions", "Playwright", "Vitest", "Storybook", "Lighthouse", "Vercel"],
+        summary: "Pruebas, automatización y despliegue con guardrails claros.",
+        title: "Entrega",
+      },
+    ],
     timeline: [
       {
-        label: "Estrategia",
-        value: "Aterrizar alcance, audiencia y narrativa antes de implementar.",
+        label: "Alcance",
+        value: "Definir el problema, roles, datos e integraciones antes de construir.",
       },
       {
-        label: "Sistema",
-        value: "Convertir la dirección visual en componentes, secciones y reglas reutilizables.",
+        label: "Arquitectura",
+        value: "Traducir requisitos a frontend, backend y contratos que escalen con el producto.",
       },
       {
-        label: "Prueba",
-        value: "Respaldar cada entrega con build, tipado, pruebas y verificación visual.",
+        label: "Entrega",
+        value: "Publicar con pruebas, validación de calidad y cambios rastreables.",
       },
     ],
     ui: {
       capabilitiesEyebrow: "Capacidades",
       capabilitiesSummary:
-        "Desde landings premium hasta dashboards y flujos en tiempo real, el mejor trabajo aquí mezcla criterio visual con disciplina técnica.",
-      capabilitiesTitle: "El buen frontend debe verse bien y aguantar presión de producción.",
+        "El perfil aquí ya no está planteado solo como frontend: combina interfaz, lógica de negocio, persistencia, integraciones y calidad de entrega.",
+      capabilitiesTitle: "Construyo producto completo, no solo la capa visual.",
       contactButton: "Abrir conversación",
       controlsEyebrow: "Preferencias",
       controlsSummary:
@@ -232,18 +256,19 @@ export const portfolioContent: Record<Locale, PortfolioLocaleContent> = {
       languageLabel: "Idioma",
       lightMode: "Claro",
       operatingStackEyebrow: "Stack operativo",
-      operatingStackTitle: "Frontend moderno con automatización y guardrails reales",
+      operatingStackTitle: "Frontend, backend y entrega con estándares de producción",
       processEyebrow: "Proceso",
       processBadge: "Entrega con previews, validación visual y commits trazables.",
       processSummary:
-        "El flujo de trabajo está diseñado para sostener calidad alta incluso cuando el proyecto avanza rápido.",
-      processTitle: "El proceso importa tanto como el resultado visual.",
+        "El valor no está solo en la implementación visual: también en cómo se modela, valida y entrega el sistema completo.",
+      processTitle: "La ejecución full-stack necesita claridad técnica y disciplina operativa.",
       principleLabel: "Principio",
       projectButton: "Ver proyecto",
       selectedWorkEyebrow: "Trabajo seleccionado",
       selectedWorkSummary:
         "Selección hecha desde tus repositorios y tu proyecto organizacional, priorizando complejidad de producto, amplitud técnica y señal profesional.",
       selectedWorkTitle: "Proyectos que demuestran rango de producto y profundidad de ingeniería.",
+      stackGroupLabel: "Área",
       stepLabel: "Paso",
       themeLabel: "Tema",
       viewOrganization: "Ver organización",
@@ -254,30 +279,30 @@ export const portfolioContent: Record<Locale, PortfolioLocaleContent> = {
     capabilityGroups: [
       {
         description:
-          "Landing pages, microsites, and product surfaces tuned for conversion, narrative clarity, and premium feel.",
-        title: "Launch-ready interfaces",
+          "Product interfaces, admin dashboards, and UI systems built for clarity, speed, and maintainability.",
+        title: "Product frontend",
       },
       {
         description:
-          "Reusable components, tokens, and interaction patterns that remain coherent as a product grows.",
-        title: "Design systems with judgment",
+          "APIs, authentication, relational modeling, websockets, and business flows built for real complexity.",
+        title: "Backend and domain logic",
       },
       {
         description:
-          "Automated checks for accessibility, responsiveness, build health, typing, and regressions before shipping.",
-        title: "Quality enforced by automation",
+          "Document processing, exports, reporting, and automation that connect operations with product delivery.",
+        title: "End-to-end operational systems",
       },
       {
         description:
-          "Frontend decisions tied to operations, metrics, and real business constraints.",
-        title: "Product-minded execution",
+          "CI/CD guardrails, testing, typing, and visual review that reduce release risk.",
+        title: "Production-grade delivery",
       },
     ],
     contact: {
       eyebrow: "Contact",
       githubLabel: "GitHub",
       primaryAction: "Email me",
-      title: "Need a portfolio, dashboard, or UI system that feels sharper than the default?",
+      title: "Need a product, dashboard, or platform that works well end to end?",
     },
     featuredProjects: [
       {
@@ -334,37 +359,54 @@ export const portfolioContent: Record<Locale, PortfolioLocaleContent> = {
       },
     ],
     siteConfig: {
-      availability: "Open for select product and frontend collaborations",
+      availability: "Open for full-stack, frontend, and backend product work",
       description:
-        "Frontend engineer building polished interfaces, operational dashboards, and web systems that hold up under real complexity.",
+        "Full-stack developer building polished interfaces, reliable APIs, and web systems that hold up under real operational complexity.",
       email: "180666585+xkodigo1@users.noreply.github.com",
       githubUrl: "https://github.com/xkodigo1",
       heroBlurb:
-        "I design and ship web products that balance visual precision, operational depth, and reliable execution.",
+        "I design and ship complete web products: frontend, backend, data, and integrations with reliable execution.",
       location: "Remote from Colombia",
       name: "Fabian Galan",
-      title: "Frontend Engineer + UI Systems Builder",
+      title: "Full-Stack Developer + Product Systems Engineer",
     },
     stack: sharedStack,
+    stackGroups: [
+      {
+        items: ["Next.js", "React", "TypeScript", "Tailwind CSS", "shadcn/ui"],
+        summary: "Product interfaces, dashboards, and maintainable UI systems.",
+        title: "Frontend",
+      },
+      {
+        items: ["Node.js", "Express", "FastAPI", ".NET", "JWT", "MySQL", "TypeORM"],
+        summary: "APIs, auth, persistence, and real business logic.",
+        title: "Backend",
+      },
+      {
+        items: ["GitHub Actions", "Playwright", "Vitest", "Storybook", "Lighthouse", "Vercel"],
+        summary: "Testing, automation, and deployment with clear guardrails.",
+        title: "Delivery",
+      },
+    ],
     timeline: [
       {
-        label: "Strategy",
-        value: "Clarify scope, audience, and narrative before implementation starts.",
+        label: "Scope",
+        value: "Define the problem, actors, data, and integrations before building.",
       },
       {
-        label: "System",
-        value: "Turn visual direction into reusable sections, components, and rules.",
+        label: "Architecture",
+        value: "Translate requirements into frontend, backend, and contracts that scale.",
       },
       {
-        label: "Proof",
-        value: "Back each release with build, typing, tests, and visual verification.",
+        label: "Delivery",
+        value: "Ship with tests, quality checks, and traceable changes.",
       },
     ],
     ui: {
       capabilitiesEyebrow: "Capabilities",
       capabilitiesSummary:
-        "From premium landing pages to dashboards and realtime workflows, the strongest work here blends visual taste with technical discipline.",
-      capabilitiesTitle: "Good frontend work should look sharp and survive production pressure.",
+        "This portfolio is no longer framed as frontend-only work: it brings together interface, business logic, persistence, integrations, and release quality.",
+      capabilitiesTitle: "I build complete products, not just the visual layer.",
       contactButton: "Start a conversation",
       controlsEyebrow: "Preferences",
       controlsSummary:
@@ -375,18 +417,19 @@ export const portfolioContent: Record<Locale, PortfolioLocaleContent> = {
       languageLabel: "Language",
       lightMode: "Light",
       operatingStackEyebrow: "Operating stack",
-      operatingStackTitle: "Modern frontend systems with real automation and guardrails",
+      operatingStackTitle: "Frontend, backend, and delivery with production standards",
       processEyebrow: "Process",
       processBadge: "Ship with previews, visual checks, and traceable commits.",
       processSummary:
-        "The workflow is designed to keep quality high even when the project moves fast.",
-      processTitle: "Process matters as much as the visual result.",
+        "The value is not only in how the interface looks, but in how the whole system is modeled, validated, and delivered.",
+      processTitle: "Full-stack execution needs technical clarity and operational discipline.",
       principleLabel: "Principle",
       projectButton: "View project",
       selectedWorkEyebrow: "Selected work",
       selectedWorkSummary:
         "Chosen from your repositories and your organization project, prioritizing product complexity, technical breadth, and professional signal.",
       selectedWorkTitle: "Projects that show both product range and engineering depth.",
+      stackGroupLabel: "Domain",
       stepLabel: "Step",
       themeLabel: "Theme",
       viewOrganization: "View organization",
@@ -397,31 +440,30 @@ export const portfolioContent: Record<Locale, PortfolioLocaleContent> = {
     capabilityGroups: [
       {
         description:
-          "Landing pages, microsites e superfícies de produto pensadas para conversão, clareza narrativa e percepção premium.",
-        title: "Interfaces prontas para lançamento",
+          "Interfaces de produto, dashboards administrativos e sistemas UI construídos para clareza, velocidade e manutenção.",
+        title: "Frontend de produto",
       },
       {
         description:
-          "Componentes, tokens e padrões reutilizáveis que continuam coerentes quando o produto cresce.",
-        title: "Sistemas de design com critério",
+          "APIs, autenticação, modelagem relacional, websockets e fluxos de negócio feitos para complexidade real.",
+        title: "Backend e lógica de domínio",
       },
       {
         description:
-          "Validações automáticas para acessibilidade, responsividade, build, tipagem e regressões antes de publicar.",
-        title: "Qualidade garantida por automação",
+          "Processamento documental, exportações, relatórios e automações que conectam operação e produto.",
+        title: "Sistemas operacionais end-to-end",
       },
       {
         description:
-          "Decisões de frontend conectadas à operação, métricas e restrições reais do negócio.",
-        title: "Execução orientada a produto",
+          "Guardrails de CI/CD, testes, tipagem e revisão visual para reduzir risco de entrega.",
+        title: "Entrega com padrão de produção",
       },
     ],
     contact: {
       eyebrow: "Contato",
       githubLabel: "GitHub",
       primaryAction: "Enviar e-mail",
-      title:
-        "Precisa de um portfólio, dashboard ou sistema UI que pareça mais sólido que o padrão?",
+      title: "Precisa de um produto, dashboard ou plataforma que funcione bem de ponta a ponta?",
     },
     featuredProjects: [
       {
@@ -478,37 +520,54 @@ export const portfolioContent: Record<Locale, PortfolioLocaleContent> = {
       },
     ],
     siteConfig: {
-      availability: "Disponível para colaborações seletivas em produto e frontend",
+      availability: "Disponível para trabalhos full-stack, frontend e backend orientados a produto",
       description:
-        "Engenheiro frontend focado em interfaces polidas, dashboards operacionais e sistemas web que suportam complexidade real.",
+        "Desenvolvedor full-stack focado em interfaces polidas, APIs confiáveis e sistemas web que sustentam operação real.",
       email: "180666585+xkodigo1@users.noreply.github.com",
       githubUrl: "https://github.com/xkodigo1",
       heroBlurb:
-        "Projeto e entrego produtos web que equilibram precisão visual, profundidade operacional e execução confiável.",
+        "Projeto e entrego produtos web completos: frontend, backend, dados e integrações com execução confiável.",
       location: "Remoto da Colômbia",
       name: "Fabian Galan",
-      title: "Engenheiro Frontend + Construtor de Sistemas UI",
+      title: "Desenvolvedor Full-Stack + Engenheiro de Sistemas de Produto",
     },
     stack: sharedStack,
+    stackGroups: [
+      {
+        items: ["Next.js", "React", "TypeScript", "Tailwind CSS", "shadcn/ui"],
+        summary: "Interfaces de produto, dashboards e sistemas UI sustentáveis.",
+        title: "Frontend",
+      },
+      {
+        items: ["Node.js", "Express", "FastAPI", ".NET", "JWT", "MySQL", "TypeORM"],
+        summary: "APIs, autenticação, persistência e lógica de negócio real.",
+        title: "Backend",
+      },
+      {
+        items: ["GitHub Actions", "Playwright", "Vitest", "Storybook", "Lighthouse", "Vercel"],
+        summary: "Testes, automação e deploy com guardrails claros.",
+        title: "Entrega",
+      },
+    ],
     timeline: [
       {
-        label: "Estratégia",
-        value: "Definir escopo, público e narrativa antes de implementar.",
+        label: "Escopo",
+        value: "Definir problema, atores, dados e integrações antes de construir.",
       },
       {
-        label: "Sistema",
-        value: "Transformar a direção visual em componentes, seções e regras reutilizáveis.",
+        label: "Arquitetura",
+        value: "Traduzir requisitos em frontend, backend e contratos que escalam com o produto.",
       },
       {
-        label: "Prova",
-        value: "Sustentar cada entrega com build, tipagem, testes e verificação visual.",
+        label: "Entrega",
+        value: "Publicar com testes, checagens de qualidade e mudanças rastreáveis.",
       },
     ],
     ui: {
       capabilitiesEyebrow: "Capacidades",
       capabilitiesSummary:
-        "De landing pages premium a dashboards e fluxos em tempo real, o melhor trabalho aqui combina bom gosto visual com disciplina técnica.",
-      capabilitiesTitle: "Bom frontend precisa parecer refinado e resistir à pressão de produção.",
+        "Este portfólio não está mais posicionado como trabalho só de frontend: ele combina interface, lógica de negócio, persistência, integrações e qualidade de entrega.",
+      capabilitiesTitle: "Eu construo produto completo, não só a camada visual.",
       contactButton: "Iniciar conversa",
       controlsEyebrow: "Preferências",
       controlsSummary:
@@ -519,18 +578,19 @@ export const portfolioContent: Record<Locale, PortfolioLocaleContent> = {
       languageLabel: "Idioma",
       lightMode: "Claro",
       operatingStackEyebrow: "Stack operacional",
-      operatingStackTitle: "Frontend moderno com automação e guardrails de verdade",
+      operatingStackTitle: "Frontend, backend e entrega com padrão de produção",
       processEyebrow: "Processo",
       processBadge: "Entregue com previews, checagens visuais e commits rastreáveis.",
       processSummary:
-        "O fluxo de trabalho foi desenhado para manter alta qualidade mesmo quando o projeto acelera.",
-      processTitle: "O processo importa tanto quanto o resultado visual.",
+        "O valor não está apenas em como a interface parece, mas em como o sistema inteiro é modelado, validado e entregue.",
+      processTitle: "Execução full-stack exige clareza técnica e disciplina operacional.",
       principleLabel: "Princípio",
       projectButton: "Ver projeto",
       selectedWorkEyebrow: "Projetos selecionados",
       selectedWorkSummary:
         "Seleção feita a partir dos seus repositórios e do seu projeto organizacional, priorizando complexidade de produto, amplitude técnica e sinal profissional.",
       selectedWorkTitle: "Projetos que mostram alcance de produto e profundidade de engenharia.",
+      stackGroupLabel: "Domínio",
       stepLabel: "Etapa",
       themeLabel: "Tema",
       viewOrganization: "Ver organização",

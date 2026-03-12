@@ -19,17 +19,17 @@ const mono = IBM_Plex_Mono({
 export const metadata: Metadata = {
   authors: [{ name: "Fabian Galan" }],
   description:
-    "Portafolio de Fabian Galan enfocado en frontend, sistemas UI, dashboards operativos y productos web listos para producción.",
+    "Portafolio de Fabian Galan como desarrollador full-stack, enfocado en frontend, backend, APIs y sistemas web listos para producción.",
   metadataBase: new URL("https://kodigo-portfolio.vercel.app"),
   openGraph: {
     description:
-      "Frontend, sistemas UI, dashboards operativos y productos web listos para producción.",
+      "Full-stack development con frontend, backend, APIs y sistemas web listos para producción.",
     siteName: "Kodigo Portfolio",
-    title: "Fabian Galan | Frontend Engineer y UI Systems Builder",
+    title: "Fabian Galan | Full-Stack Developer y Product Systems Engineer",
     type: "website",
   },
   title: {
-    default: "Fabian Galan | Frontend Engineer y UI Systems Builder",
+    default: "Fabian Galan | Full-Stack Developer y Product Systems Engineer",
     template: "%s | Kodigo Portfolio",
   },
 };
