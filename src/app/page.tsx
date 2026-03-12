@@ -13,6 +13,7 @@ import {
 import { useEffect, useState } from "react";
 
 import { ContactStrip } from "../components/sections/contact-strip";
+import { ExperienceCard } from "../components/sections/experience-card";
 import { ProcessStep } from "../components/sections/process-step";
 import { ProjectCard } from "../components/sections/project-card";
 import { Reveal } from "../components/sections/reveal";
@@ -332,6 +333,31 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="mx-auto max-w-7xl px-4 py-9 sm:px-6 sm:py-10 md:px-10 md:py-14">
+        <Reveal>
+          <SectionHeading
+            eyebrow={content.ui.experienceEyebrow}
+            summary={content.ui.experienceSummary}
+            title={content.ui.experienceTitle}
+          />
+        </Reveal>
+        <div className="mt-8 grid gap-5 lg:grid-cols-3">
+          {content.experience.map((entry, index) => (
+            <Reveal key={`${entry.organization}-${entry.role}`} delay={0.05 * (index + 1)}>
+              <ExperienceCard
+                highlights={entry.highlights}
+                highlightsLabel={content.ui.experienceHighlightsLabel}
+                organization={entry.organization}
+                period={entry.period}
+                role={entry.role}
+                stack={entry.stack}
+                summary={entry.summary}
+              />
+            </Reveal>
+          ))}
+        </div>
+      </section>
+
       <section className="mx-auto max-w-7xl px-4 py-9 sm:px-6 sm:py-10 md:px-10 md:py-14" id="work">
         <Reveal>
           <SectionHeading
@@ -343,7 +369,13 @@ export default function Home() {
         <div className="mt-8 grid gap-5 sm:gap-6 lg:grid-cols-3">
           {content.featuredProjects.map((project, index) => (
             <Reveal key={project.title} delay={0.06 * (index + 1)}>
-              <ProjectCard {...project} ctaLabel={project.ctaLabel ?? content.ui.projectButton} />
+              <ProjectCard
+                {...project}
+                ctaLabel={project.ctaLabel ?? content.ui.projectButton}
+                highlightsLabel={content.ui.projectHighlightsLabel}
+                impactLabel={content.ui.impactLabel}
+                roleLabel={content.ui.projectRoleLabel}
+              />
             </Reveal>
           ))}
         </div>
