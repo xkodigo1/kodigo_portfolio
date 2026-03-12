@@ -1,0 +1,37 @@
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+      time: "06:00"
+    groups:
+      frontend-runtime:
+        patterns:
+          - next
+          - react
+          - react-dom
+          - motion
+          - lucide-react
+      quality-tooling:
+        patterns:
+          - "@storybook/*"
+          - "@chromatic-com/*"
+          - "@playwright/*"
+          - "@testing-library/*"
+          - "@biomejs/*"
+          - "@lhci/*"
+          - husky
+          - lint-staged
+          - storybook
+          - vitest
+          - vite
+    open-pull-requests-limit: 10
+
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+      time: "06:30"

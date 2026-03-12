@@ -1,19 +1,46 @@
 {
-  "name": "tmp-next",
+  "name": "kodigo-portfolio",
   "version": "0.1.0",
   "private": true,
+  "packageManager": "pnpm@10.31.0",
+  "engines": {
+    "node": ">=24.0.0",
+    "pnpm": ">=10.0.0"
+  },
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "biome check",
-    "format": "biome format --write"
+    "lint": "biome check .",
+    "format": "biome check . --write",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run --project unit",
+    "test:watch": "vitest --project unit",
+    "test:stories": "vitest run --project storybook",
+    "test:e2e": "playwright test",
+    "test:e2e:ui": "playwright test --ui",
+    "storybook": "storybook dev -p 6006",
+    "storybook:build": "storybook build",
+    "build-storybook": "pnpm storybook:build",
+    "lighthouse": "node scripts/run-lighthouse.mjs",
+    "commits:check": "node scripts/validate-commit-range.mjs",
+    "prepare": "husky",
+    "verify": "pnpm lint && pnpm typecheck && pnpm test && pnpm test:stories && pnpm build && pnpm storybook:build",
+    "verify:local": "pnpm lint && pnpm typecheck && pnpm test"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,mjs,cjs,json,md,css}": [
+      "pnpm exec biome check --write --no-errors-on-unmatched"
+    ]
   },
   "dependencies": {
     "@base-ui/react": "^1.2.0",
+    "@vercel/analytics": "2.0.0",
+    "@vercel/speed-insights": "2.0.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "lucide-react": "^0.577.0",
+    "motion": "12.35.2",
     "next": "16.1.6",
     "react": "19.2.3",
     "react-dom": "19.2.3",
@@ -23,12 +50,32 @@
   },
   "devDependencies": {
     "@biomejs/biome": "2.2.0",
+    "@chromatic-com/storybook": "^5.0.1",
+    "@lhci/cli": "0.15.1",
+    "@playwright/test": "1.58.2",
+    "@storybook/addon-a11y": "^10.2.17",
+    "@storybook/addon-docs": "^10.2.17",
+    "@storybook/addon-vitest": "^10.2.17",
+    "@storybook/nextjs-vite": "^10.2.17",
     "@tailwindcss/postcss": "^4",
+    "@testing-library/jest-dom": "6.9.1",
+    "@testing-library/react": "16.3.2",
+    "@testing-library/user-event": "14.6.1",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "@vitest/browser-playwright": "^4.0.18",
+    "@vitest/coverage-v8": "^4.0.18",
     "babel-plugin-react-compiler": "1.0.0",
+    "husky": "9.1.7",
+    "jsdom": "28.1.0",
+    "lint-staged": "16.3.3",
+    "playwright": "^1.58.2",
+    "storybook": "^10.2.17",
     "tailwindcss": "^4",
-    "typescript": "^5"
+    "typescript": "^5",
+    "vite": "^7.3.1",
+    "vite-tsconfig-paths": "^5.1.4",
+    "vitest": "^4.0.18"
   }
 }
