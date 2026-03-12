@@ -255,15 +255,33 @@ export default function Home() {
                   <Github className="size-4" />
                 </a>
               </div>
-              <div className="mt-6 flex flex-wrap gap-2">
-                {content.stack.map((item) => (
-                  <Badge
-                    key={item}
-                    className="rounded-full border-stone-900/10 bg-stone-900/5 px-3 py-1 text-stone-700 dark:border-white/10 dark:bg-white/6 dark:text-stone-200"
-                    variant="outline"
+              <div className="mt-6 grid gap-4 lg:grid-cols-3">
+                {content.stackGroups.map((group) => (
+                  <article
+                    key={group.title}
+                    className="rounded-[1.5rem] border border-stone-900/10 bg-white/65 p-4 dark:border-white/10 dark:bg-white/6"
                   >
-                    {item}
-                  </Badge>
+                    <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-stone-500 dark:text-stone-500">
+                      {content.ui.stackGroupLabel}
+                    </p>
+                    <h3 className="mt-3 text-lg font-semibold text-stone-950 dark:text-stone-50">
+                      {group.title}
+                    </h3>
+                    <p className="mt-2 text-sm leading-6 text-stone-700 dark:text-stone-300">
+                      {group.summary}
+                    </p>
+                    <div className="mt-4 flex flex-wrap gap-2">
+                      {group.items.map((item) => (
+                        <Badge
+                          key={item}
+                          className="rounded-full border-stone-900/10 bg-stone-900/5 px-3 py-1 text-stone-700 dark:border-white/10 dark:bg-white/6 dark:text-stone-200"
+                          variant="outline"
+                        >
+                          {item}
+                        </Badge>
+                      ))}
+                    </div>
+                  </article>
                 ))}
               </div>
             </article>
