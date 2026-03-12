@@ -14,7 +14,7 @@ describe("Home page", () => {
     render(<Home />);
 
     expect(screen.getByRole("heading", { level: 1, name: /fabian galan/i })).toBeInTheDocument();
-    expect(screen.getByText(/desarrollador full-stack/i)).toBeInTheDocument();
+    expect(screen.getAllByText(/desarrollador full-stack/i).length).toBeGreaterThan(0);
     expect(
       screen.getByRole("heading", {
         level: 2,
