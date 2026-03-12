@@ -82,9 +82,12 @@ export default function Home() {
         <div className="grid-fade h-full w-full" />
       </div>
 
-      <section className="mx-auto max-w-7xl px-4 pb-14 pt-6 sm:px-6 sm:pb-16 sm:pt-8 md:px-10 md:pb-24 md:pt-12">
-        <div className="grid gap-6 lg:grid-cols-[1.08fr_0.92fr] lg:gap-12">
-          <Reveal className="surface-panel px-5 py-7 sm:px-6 sm:py-8 md:px-8 md:py-10" delay={0.05}>
+      <section className="mx-auto max-w-[92rem] px-4 pb-14 pt-6 sm:px-6 sm:pb-16 sm:pt-8 md:px-10 md:pb-24 md:pt-12 xl:px-12">
+        <div className="grid gap-6 lg:items-start lg:grid-cols-[minmax(0,1.12fr)_minmax(22rem,0.88fr)] lg:gap-12 xl:gap-16">
+          <Reveal
+            className="surface-panel px-5 py-7 sm:px-6 sm:py-8 md:px-8 md:py-10 xl:px-10 xl:py-11"
+            delay={0.05}
+          >
             <div className="flex min-w-0 flex-wrap items-start gap-3">
               <Badge
                 className="h-auto max-w-full justify-start whitespace-normal border-teal-900/15 bg-teal-100 px-3 py-1.5 text-[11px] leading-4 text-teal-950 sm:h-5 sm:whitespace-nowrap sm:px-2 sm:py-0.5 sm:text-xs dark:border-teal-200/12 dark:bg-teal-300/14 dark:text-teal-100"
@@ -143,8 +146,8 @@ export default function Home() {
             </div>
           </Reveal>
 
-          <Reveal className="grid min-w-0 gap-5" delay={0.12}>
-            <article className="surface-panel p-5 sm:p-6 md:p-7">
+          <Reveal className="grid min-w-0 gap-5 xl:gap-6" delay={0.12}>
+            <article className="surface-panel p-5 sm:p-6 md:p-7 xl:p-8">
               <div className="flex flex-col gap-6">
                 <div className="space-y-3">
                   <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-stone-500 sm:text-xs sm:tracking-[0.22em] dark:text-stone-500">
@@ -236,7 +239,7 @@ export default function Home() {
               </div>
             </article>
 
-            <article className="surface-panel overflow-hidden p-5 sm:p-6 md:p-7">
+            <article className="surface-panel overflow-hidden p-5 sm:p-6 md:p-7 xl:p-8">
               <div className="flex flex-col items-start gap-5 sm:flex-row sm:justify-between">
                 <div className="min-w-0">
                   <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-stone-500 sm:text-xs sm:tracking-[0.22em] dark:text-stone-500">
@@ -256,7 +259,7 @@ export default function Home() {
                   <Github className="size-4" />
                 </a>
               </div>
-              <div className="mt-6 grid gap-4 lg:grid-cols-3">
+              <div className="mt-6 grid gap-4 xl:grid-cols-3">
                 {content.stackGroups.map((group) => (
                   <article
                     key={group.title}
@@ -306,7 +309,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-4 py-9 sm:px-6 sm:py-10 md:px-10 md:py-14">
+      <section className="mx-auto max-w-[92rem] px-4 py-9 sm:px-6 sm:py-10 md:px-10 md:py-14 xl:px-12">
         <Reveal>
           <SectionHeading
             eyebrow={content.ui.capabilitiesEyebrow}
@@ -333,7 +336,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-4 py-9 sm:px-6 sm:py-10 md:px-10 md:py-14">
+      <section className="mx-auto max-w-[92rem] px-4 py-9 sm:px-6 sm:py-10 md:px-10 md:py-14 xl:px-12">
         <Reveal>
           <SectionHeading
             eyebrow={content.ui.experienceEyebrow}
@@ -358,7 +361,10 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-4 py-9 sm:px-6 sm:py-10 md:px-10 md:py-14" id="work">
+      <section
+        className="mx-auto max-w-[92rem] px-4 py-9 sm:px-6 sm:py-10 md:px-10 md:py-14 xl:px-12"
+        id="work"
+      >
         <Reveal>
           <SectionHeading
             eyebrow={content.ui.selectedWorkEyebrow}
@@ -381,9 +387,9 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-4 py-9 sm:px-6 sm:py-10 md:px-10 md:py-14">
-        <div className="grid gap-6 lg:grid-cols-[0.95fr_1.05fr] lg:gap-10">
-          <Reveal className="surface-panel px-5 py-6 sm:px-6 sm:py-7 md:px-8 md:py-8">
+      <section className="mx-auto max-w-[92rem] px-4 py-9 sm:px-6 sm:py-10 md:px-10 md:py-14 xl:px-12">
+        <div className="grid gap-6 lg:items-start lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] lg:gap-10 xl:gap-14">
+          <Reveal className="surface-panel px-5 py-6 sm:px-6 sm:py-7 md:px-8 md:py-8 xl:px-9 xl:py-9">
             <SectionHeading
               eyebrow={content.ui.processEyebrow}
               summary={content.ui.processSummary}
