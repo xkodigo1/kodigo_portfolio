@@ -10,7 +10,9 @@ test("homepage renders the main portfolio sections", async ({ page }) => {
     }),
   ).toBeVisible();
 
-  await expect(page.getByRole("link", { name: /explore selected work/i })).toBeVisible();
-  await expect(page.getByText(/^Selected work$/i)).toBeVisible();
-  await expect(page.getByText(/^contact$/i)).toBeVisible();
+  await expect(
+    page.getByRole("link", { name: /explorar proyectos|explore projects/i }),
+  ).toBeVisible();
+  await expect(page.getByText(/^trabajo seleccionado$|^selected work$/i)).toBeVisible();
+  await expect(page.getByText(/^contacto$|^contact$/i)).toBeVisible();
 });
